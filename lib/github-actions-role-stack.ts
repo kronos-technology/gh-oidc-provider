@@ -1,16 +1,14 @@
-import { Stack, StackProps } from 'aws-cdk-lib';
-import { Construct } from 'constructs';
-// import * as sqs from 'aws-cdk-lib/aws-sqs';
-
+import { GitHubActionRole } from "cdk-pipelines-github";
+import { App, Stack, StackProps } from "aws-cdk-lib";
+import { Construct } from "constructs";
 export class GithubActionsRoleStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
-    // The code that defines your stack goes here
-
-    // example resource
-    // const queue = new sqs.Queue(this, 'GithubActionsRoleQueue', {
-    //   visibilityTimeout: cdk.Duration.seconds(300)
-    // });
+    const provider = new GitHubActionRole(this, "github-action-role", {
+      repos: [
+        "andersong9012/https://github.com/kronos-technology/drivers-app-mvp.git",
+      ],
+    });
   }
 }
