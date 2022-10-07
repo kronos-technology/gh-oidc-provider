@@ -7,7 +7,7 @@ export class GithubActionsRoleStack extends Stack {
 
     const provider = new GitHubActionRole(this, "github-action-role", {
       repos: [
-        "andersong9012/https://github.com/kronos-technology/drivers-app-mvp.git",
+        "andersong9012/https://github.com/kronos-technology/data-platform.git",
       ],
     });
   }
